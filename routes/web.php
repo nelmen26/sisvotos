@@ -21,8 +21,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'configuracion'], function(){
 	// Rutas para el modulo de usuarios
 	Route::resource('users', 'UserController',['except' => 'show']);
+	// Rutas para el modulo de tipos
+	Route::resource('tipos', 'TipoController',['except' => 'show']);
 });
 
 Route::get('/perfil','UserController@perfil')->name('users.perfil');
 Route::put('users/{user}/password','UserController@updatepassword')->name('users.updatepassword');
+
+// Rutas api's
 Route::get('users/apiUsers','UserController@apiUsers')->name('users.apiUsers');
+Route::get('tipos/apiTipos','TipoController@apiTipos')->name('tipos.apiTipos');
