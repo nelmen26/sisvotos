@@ -33,6 +33,11 @@
             <i class="fa fa-list"></i> Tipo de Eleccion
           </a>
         </li>
+        <li class="{{ active('configuracion/recintos') }}">
+          <a href="{{ route('recintos.index') }}">
+            <i class="fa fa-building"></i> Recintos
+          </a>
+        </li>
         <li class="{{ active('configuracion/users') }}">
           <a href="{{ route('users.index') }}">
             <i class="fa fa-users"></i> Usuarios

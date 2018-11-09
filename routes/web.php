@@ -23,6 +23,11 @@ Route::group(['prefix' => 'configuracion'], function(){
 	Route::resource('users', 'UserController',['except' => 'show']);
 	// Rutas para el modulo de tipos
 	Route::resource('tipos', 'TipoController',['except' => 'show']);
+	// Rutas para el modulo de recintos
+	Route::resource('recintos', 'RecintoController',['except' => 'show']);
+	// Rutas para importar Recintos atraves del un archivo excel
+	Route::get('recintos/importar', 'RecintoController@importar')->name('recintos.importar');
+	Route::post('recintos/importar', 'RecintoController@storeimportar')->name('recintos.storeimportar');
 });
 
 Route::get('/perfil','UserController@perfil')->name('users.perfil');
@@ -31,3 +36,4 @@ Route::put('users/{user}/password','UserController@updatepassword')->name('users
 // Rutas api's
 Route::get('users/apiUsers','UserController@apiUsers')->name('users.apiUsers');
 Route::get('tipos/apiTipos','TipoController@apiTipos')->name('tipos.apiTipos');
+Route::get('recintos/apiRecintos','RecintoController@apiRecintos')->name('recintos.apiRecintos');
