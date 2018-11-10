@@ -15,11 +15,12 @@
 <link rel="stylesheet" href="{{ asset('fonts/SourceSansPro/fonts.css') }}">
 <!--DataTables-->
 <link rel="stylesheet" href="{{ asset('plugins/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+<!--Estilos cargados dinamicamente por otras vistas-->
+@yield('css')
 <!-- Theme style AdminLTE -->
 <link rel="stylesheet" href="{{ asset('adminLTE/css/AdminLTE.min.css') }}">
 <link rel="stylesheet" href="{{ asset('adminLTE/css/skins/_all-skins.min.css') }}">
-<!--Estilos cargados dinamicamente por otras vistas-->
-@yield('css')
+
 <!-- Estilos personalizados -->
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 

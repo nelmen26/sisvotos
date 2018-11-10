@@ -24,4 +24,9 @@ class Recinto extends Model
     {
         return $this->estado=='A' ? 'HABILITADO' : 'DESHABILITADO';
     }
+
+    public function mesas()
+    {
+        return $this->hasMany(Mesa::class);
+    }
 }

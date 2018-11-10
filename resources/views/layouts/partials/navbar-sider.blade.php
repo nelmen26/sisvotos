@@ -38,6 +38,11 @@
             <i class="fa fa-building"></i> Recintos
           </a>
         </li>
+        <li class="{{ active('configuracion/mesas') }}">
+          <a href="{{ route('mesas.index') }}">
+            <i class="fa fa-th"></i> Mesas
+          </a>
+        </li>
         <li class="{{ active('configuracion/users') }}">
           <a href="{{ route('users.index') }}">
             <i class="fa fa-users"></i> Usuarios
