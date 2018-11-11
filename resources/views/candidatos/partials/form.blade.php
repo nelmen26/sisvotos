@@ -37,7 +37,7 @@
     <div class="col-md-6">
         <div class="form-group{{ $errors->has('color') ? ' has-error' : '' }}">
             {{ Form::label('color', 'Color del Partido') }}
-            <div class="input-group colorpicker">
+            <div class="input-group mi-colorpicker">
                 {{ Form::text('color',null,['class'=> 'form-control', 'placeholder'=>'#000000']) }}
                 <div class="input-group-addon">
                     <i></i>
@@ -92,7 +92,7 @@
 <script src="{{ asset ('plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
 <script>
     $(function(){
-        $('.colorpicker').colorpicker()
+        $('.mi-colorpicker').colorpicker()
     })
 </script>
 @endsection

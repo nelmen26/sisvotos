@@ -25,22 +25,25 @@
 	  	</div>
 	</div>
 	<div class="box-body">
-		<a href="{{ route('mesas.importar') }}" class="btn btn-flat btn-success pull-right">
-			<i class="fa fa-download"></i> IMPORTAR MESAS DE RECINTOS
-		</a>
-		<a href="{{ route('mesas.generar') }}" class="btn btn-flat btn-warning pull-right">
+		<div>
+			<a href="{{ route('mesas.create') }}" class="btn btn-flat btn-primary">
+				<i class="fa fa-plus"></i> NUEVA MESA
+			</a>
+			<a href="{{ route('mesas.generar') }}" class="btn btn-flat btn-warning">
 				<i class="fa fa-th"></i> GENERAR MESAS
 			</a>
-		<a href="{{ route('mesas.create') }}" class="btn btn-flat btn-primary pull-right">
-			<i class="fa fa-plus"></i> NUEVA MESA
-		</a><br><br>
+			<a href="{{ route('mesas.importar') }}" class="btn btn-flat btn-success">
+				<i class="fa fa-download"></i> IMPORTAR MESAS DE RECINTOS
+			</a>
+		</div>
+		<br>
         <table id="mesas" class="table table-bordered table-striped table-hover">
         	<thead>
         		<tr class="bg-black">
 					<th>Mesa</th>
 					<th>Recinto</th>
-					<th width="15%">Votos habilitados</th>
-					<th width="5%">Estado</th>
+					{{-- <th width="15%">Votos habilitados</th> --}}
+					{{-- <th width="5%">Estado</th> --}}
 					<th width="8%">&nbsp;</th>
         		</tr>
         	</thead> 
@@ -66,8 +69,8 @@
         columns: [
             { data: 'nombre'},
             { data: 'recinto.nombre'},
-            { data: 'total_votar'},
-            { data: 'estado'},
+            // { data: 'total_votar'},
+            // { data: 'estado'},
             { data: 'action', orderable: false, searchable: false},
         ],
     });

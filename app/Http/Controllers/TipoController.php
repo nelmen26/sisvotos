@@ -18,7 +18,7 @@ class TipoController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Request $request)
+    public function index()
     {
         return view('tipos.index');
     }
@@ -27,14 +27,17 @@ class TipoController extends Controller
     {
         $tipos = Tipo::orderBy('nombre','ASC')->get();
         return Datatables::of($tipos)
-                            ->editColumn('estado', function($tipo){
-                                return '<span class="label label-primary">'.$tipo->fullestado.'</span>';
-                            })
+                            // ->editColumn('estado', function($tipo){
+                            //     return '<span class="label label-primary">'.$tipo->fullestado.'</span>';
+                            // })
                             ->editColumn('descripcion', function($tipo){
                                 return $tipo->descripcion ? $tipo->descripcion :'SIN DESCRIPCION';
                             })
+                            ->setRowClass(function ($tipo) {
+                                return $tipo->estado == 'A' ? '' : 'bg-deshabilitado';
+                            })
                             ->addColumn('action','tipos.partials.acciones')
-                            ->rawColumns(['action','estado'])
+                            // ->rawColumns(['action','estado'])
                             ->toJson();
     }
 

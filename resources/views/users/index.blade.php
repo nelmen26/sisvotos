@@ -25,15 +25,18 @@
 	  	</div>
 	</div>
 	<div class="box-body">
-		<a href="{{ route('users.create') }}" class="btn btn-flat btn-primary pull-right">
-			<i class="fa fa-plus"></i> NUEVO USUARIO
-		</a><br><br>
+		<div>
+			<a href="{{ route('users.create') }}" class="btn btn-flat btn-primary">
+				<i class="fa fa-plus"></i> NUEVO USUARIO
+			</a>
+		</div>
+		<br>
         <table id="usuarios" class="table table-bordered table-striped table-hover">
         	<thead>
         		<tr class="bg-black">
 					<th>Nombre</th>
 					<th>Usuario</th>
-					<th>Rol</th>
+					{{-- <th>Rol</th> --}}
 					<th width="8%">&nbsp;</th>
         		</tr>
         	</thead> 
@@ -59,7 +62,7 @@
         columns: [
             { data: 'nombre'},
             { data: 'nickname'},
-            { data: 'rol'},
+            // { data: 'rol'},
             { data: 'action', orderable: false, searchable: false},
         ],
     });

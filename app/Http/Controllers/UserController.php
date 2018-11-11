@@ -20,7 +20,7 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Request $request)
+    public function index()
     {
         return view('users.index');
     }
@@ -29,7 +29,11 @@ class UserController extends Controller
     {
         $users = User::orderBy('nombre','ASC')->get();
         return Datatables::of($users)
+                            ->editColumn('nickname', function($user){
+                                return $user->nickname .' <br><span class="label label-primary">'.$user->rol.'</span>';
+                            })
                             ->addColumn('action','users.partials.acciones')
+                            ->rawColumns(['action','nickname'])
                             ->toJson();
     }
 

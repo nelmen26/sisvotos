@@ -25,9 +25,27 @@
 	  	</div>
 	</div>
 	<div class="box-body">
-		<a href="{{ route('candidatos.create') }}" class="btn btn-flat btn-primary pull-right">
-			<i class="fa fa-plus"></i> NUEVO CANDIDATO
-		</a><br><br>
+		<div>
+			<a href="{{ route('candidatos.create') }}" class="btn btn-flat btn-primary">
+				<i class="fa fa-plus"></i> NUEVO CANDIDATO
+			</a>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				{!!Form::open(['route'=>'candidatos.index', 'method'=>'GET'])!!}
+					<div>
+						<div class="input-group input-group-sm">
+								{{Form::text('buscar',null,['class'=>'form-control text-uppercase', 'placeholder'=>'Buscar candidato ...'])}}
+								<span class="input-group-btn">
+									<button type="submit" class="btn btn-default btn-flat"><i class="fa fa-search"></i></button>
+								</span>
+						</div>
+					</div>
+				{!!Form::close()!!}
+			</div>
+		</div>
+		<br>
     <div class="row">
 			@foreach ($candidatos as $candidato)
 			<div class="col-md-3">

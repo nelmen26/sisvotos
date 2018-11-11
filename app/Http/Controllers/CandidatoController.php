@@ -22,7 +22,7 @@ class CandidatoController extends Controller
 
     public function index(Request $request)
     {
-        $candidatos = Candidato::orderBy('id','ASC')->get();
+        $candidatos = Candidato::search($request->buscar)->orderBy('id','ASC')->get();
         return view('candidatos.index',compact('candidatos'));
     }
 

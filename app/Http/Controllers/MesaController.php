@@ -22,7 +22,7 @@ class MesaController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Request $request)
+    public function index()
     {
         return view('mesas.index');
     }
@@ -31,11 +31,14 @@ class MesaController extends Controller
     {
         $mesas = Mesa::with('recinto')->orderBy('recinto_id','ASC')->get();
         return Datatables::of($mesas)
-                            ->editColumn('estado', function($mesa){
-                                return '<span class="label label-primary">'.$mesa->fullestado.'</span>';
+                            // ->editColumn('estado', function($mesa){
+                            //     return '<span class="label label-primary">'.$mesa->fullestado.'</span>';
+                            // })
+                            ->setRowClass(function ($mesa) {
+                                return $mesa->estado == 'A' ? '' : 'bg-deshabilitado';
                             })
                             ->addColumn('action','mesas.partials.acciones')
-                            ->rawColumns(['action','estado'])
+                            // ->rawColumns(['action','estado'])
                             ->toJson();
     }
 

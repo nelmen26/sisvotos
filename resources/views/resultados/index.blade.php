@@ -27,7 +27,7 @@
 	<div class="box-body">
 		<div class="row">
       <div class="col-md-8">
-          {!! $chartjs->render() !!}
+        {!! $chartjs->render() !!}
       </div>
       <div class="col-md-4">
         <p class="text-center">
@@ -40,8 +40,8 @@
           <span class="progress-number"><b>{{ $candidato->mesas()->sum('votos') }}</b>/{{ $total }}</span>
 
           <div class="progress ">
-          <div class="progress-bar progress-bar-striped" style="background-color:{{ $candidato->color }} ; width: {{ round($candidato->mesas()->sum('votos') * 100 / $total,1) }}%">
-              {{ round($candidato->mesas()->sum('votos') * 100 / $total,1) }}%
+          <div class="progress-bar" style="background-color:{{ $candidato->color }} ; width: {{ $total==0 ? '0': round($candidato->mesas()->sum('votos') * 100 / $total,1) }}%">
+              {{ $total==0 ? '0': round($candidato->mesas()->sum('votos') * 100 / $total,1) }}%
           </div>
           </div>
         </div>

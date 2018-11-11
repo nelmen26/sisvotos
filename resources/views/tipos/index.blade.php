@@ -25,20 +25,22 @@
 	  	</div>
 	</div>
 	<div class="box-body">
-		<a href="{{ route('tipos.create') }}" class="btn btn-flat btn-primary pull-right">
+		<a href="{{ route('tipos.create') }}" class="btn btn-flat btn-primary">
 			<i class="fa fa-plus"></i> NUEVO TIPO DE ELECCIONES
-		</a><br><br>
-        <table id="tipos" class="table table-bordered table-striped table-hover">
+		</a>
+		<br><br>
+        <table id="tipos" class="table table-bordered table-striped table-hover table-responsive">
         	<thead>
         		<tr class="bg-black">
 					<th width="5%">#</th>
 					<th>Nombre</th>
 					<th>Descripcion</th>
-					<th width="5%">Estado</th>
+					{{-- <th width="5%">Estado</th> --}}
 					<th width="8%">&nbsp;</th>
         		</tr>
         	</thead> 
-        </table>
+		</table>
+		{{-- </div> --}}
     </div>
 	<!-- /.box-body -->
 </div>
@@ -61,7 +63,7 @@
             { data: 'id'},
             { data: 'nombre'},
             { data: 'descripcion'},
-            { data: 'estado'},
+            // { data: 'estado'},
             { data: 'action', orderable: false, searchable: false},
         ],
     });

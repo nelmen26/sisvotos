@@ -25,6 +25,21 @@
 	  </div>
 	</div>
 	<div class="box-body">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				{!!Form::open(['route'=>'registros.index', 'method'=>'GET'])!!}
+					<div>
+						<div class="input-group input-group-sm">
+								{{Form::text('buscar',null,['class'=>'form-control text-uppercase', 'placeholder'=>'Buscar recinto ...'])}}
+								<span class="input-group-btn">
+									<button type="submit" class="btn btn-default btn-flat"><i class="fa fa-search"></i></button>
+								</span>
+						</div>
+					</div>
+				{!!Form::close()!!}
+			</div>
+		</div>
+		<br>
     @foreach ($recintos as $recinto)
       <a href="{{ route('registros.mesas', $recinto->id) }}" class="btn btn-block btn-social btn-default">
         <i class="fa fa-building"></i> {{ $recinto->nombre }}

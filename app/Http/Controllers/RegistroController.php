@@ -13,7 +13,7 @@ class RegistroController extends Controller
 {
     public function index(Request $request)
     {
-        $recintos = Recinto::orderBy('nombre','ASC')->paginate('10');
+        $recintos = Recinto::search($request->buscar)->orderBy('nombre','ASC')->paginate('10');
         return view('registros.index',compact('recintos'));
     }
 

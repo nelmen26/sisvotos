@@ -33,10 +33,10 @@
           <li class="list-group-item">
             <b>Porcentaje</b>
             <span class="pull-right">
-                {{ round($candidato->mesas()->sum('votos') * 100 / $total,1) }}%
+                {{ $total==0 ? '0': round($candidato->mesas()->sum('votos') * 100 / $total,1) }}%
             </span>
             <div class="progress">
-              <div class="progress-bar progress-bar-striped" style="background-color:{{ $candidato->color }} ; width: {{ round($candidato->mesas()->sum('votos') * 100 / $total,1) }}%">
+              <div class="progress-bar" style="background-color:{{ $candidato->color }} ; width: {{ $total==0 ? '0': round($candidato->mesas()->sum('votos') * 100 / $total,1) }}%">
               </div>
             </div>
           </li>

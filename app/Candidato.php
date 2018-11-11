@@ -34,4 +34,10 @@ class Candidato extends Model
                     ->withPivot('votos')
                     ->withTimestamps();
     }
+
+    public function scopeSearch($query, $buscar)
+    {
+        return $query->where('nombre','LIKE',"%$buscar%")
+                    ->orWhere('apellidos','LIKE',"%$buscar%");
+    }
 }

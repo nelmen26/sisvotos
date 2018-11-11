@@ -21,7 +21,7 @@ class RecintoController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Request $request)
+    public function index()
     {
         return view('recintos.index');
     }
@@ -30,14 +30,17 @@ class RecintoController extends Controller
     {
         $recintos = Recinto::orderBy('nombre','ASC')->get();
         return Datatables::of($recintos)
-                            ->editColumn('estado', function($recinto){
-                                return '<span class="label label-primary">'.$recinto->fullestado.'</span>';
-                            })
+                            // ->editColumn('estado', function($recinto){
+                            //     return '<span class="label label-primary">'.$recinto->fullestado.'</span>';
+                            // })
                             ->editColumn('direccion', function($recinto){
                                 return $recinto->direccion ? $recinto->direccion :'SIN DIRECCION';
                             })
+                            ->setRowClass(function ($recinto) {
+                                return $recinto->estado == 'A' ? '' : 'bg-deshabilitado';
+                            })
                             ->addColumn('action','recintos.partials.acciones')
-                            ->rawColumns(['action','estado'])
+                            // ->rawColumns(['action','estado'])
                             ->toJson();
     }
 

@@ -29,4 +29,9 @@ class Recinto extends Model
     {
         return $this->hasMany(Mesa::class);
     }
+
+    public function scopeSearch($query, $buscar)
+    {
+        return $query->where('nombre','LIKE',"%$buscar%");
+    }
 }
