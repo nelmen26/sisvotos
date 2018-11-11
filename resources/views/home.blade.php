@@ -34,7 +34,7 @@
       <div class="info-box-content">
         <span class="info-box-text">RESULTADOS</span>
         <span class="info-box-number"> - </span>
-        <a href="#" class="btn btn-link">INGRESAR</a>
+        <a href="{{ route('resultados.index') }}" class="btn btn-link">INGRESAR</a>
       </div>
       <!-- /.info-box-content -->
     </div>

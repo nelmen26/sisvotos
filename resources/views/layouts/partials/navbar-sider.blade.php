@@ -26,8 +26,8 @@
         <i class="fa fa-check-circle"></i> <span>REGISTRO DE VOTOS</span>
       </a>
     </li>
-    <li>
-      <a href="#">
+    <li class="{{ active('resultados') }}">
+      <a href="{{ route('resultados.index') }}">
         <i class="fa fa-pie-chart"></i> <span>RESULTADOS</span>
       </a>
     </li>

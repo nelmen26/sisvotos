@@ -48,6 +48,8 @@ Route::get('registros/{recinto}/mesas', 'RegistroController@mesas')->name('regis
 Route::get('registros/{mesa}/votos', 'RegistroController@votos')->name('registros.votos');
 Route::post('registros/{mesa}/votos', 'RegistroController@storevotos')->name('registros.storevotos');
 
+Route::get('resultados', 'ResultadoController@index')->name('resultados.index');
+
 Route::get('/perfil','UserController@perfil')->name('users.perfil');
 Route::put('users/{user}/password','UserController@updatepassword')->name('users.updatepassword');
 

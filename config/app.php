@@ -177,6 +177,7 @@ return [
         // SIS\Providers\BroadcastServiceProvider::class,
         SIS\Providers\EventServiceProvider::class,
         SIS\Providers\RouteServiceProvider::class,
+        Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class,
 
     ],
 
