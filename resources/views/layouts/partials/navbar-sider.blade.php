@@ -31,8 +31,8 @@
         <i class="fa fa-pie-chart"></i> <span>RESULTADOS</span>
       </a>
     </li>
-    <li>
-      <a href="#">
+    <li class="{{ active('resultados/candidatos') }}">
+      <a href="{{ route('resultados.candidatos') }}">
         <i class="fa fa-user"></i> <span>CANDIDATOS</span>
       </a>
     </li>

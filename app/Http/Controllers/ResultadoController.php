@@ -61,4 +61,14 @@ class ResultadoController extends Controller
         $mesas = Mesa::where('estado','D')->orderBy('updated_at','DESC')->get()->take(6);
         return view('resultados.index',compact('chartjs','candidatos','total','chartjs2','abiertos','cerrados','mesas'));
     }
+
+    public function candidatos()
+    {
+        $candidatos = Candidato::where('tipo_id',1)->where('estado','A')->get();
+        $total = 0;
+        foreach ($candidatos as $candidato) {
+            $total += $candidato->mesas()->sum('votos');
+        }
+        return view('resultados.candidatos',compact('candidatos','total'));
+    }
 }

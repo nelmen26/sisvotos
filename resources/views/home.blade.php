@@ -52,7 +52,7 @@
       <div class="info-box-content">
         <span class="info-box-text">CANDIDATOS</span>
         <span class="info-box-number">{{ $candidatos }}</span>
-        <a href="#" class="btn btn-link">INGRESAR</a>
+        <a href="{{ route('resultados.candidatos') }}" class="btn btn-link">INGRESAR</a>
       </div>
       <!-- /.info-box-content -->
     </div>
