@@ -28,7 +28,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
-                <input type="password" class="form-control" placeholder="Contrasena" name="password"/>
+                <input type="password" class="form-control" placeholder="Contraseña" name="password"/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 @if ($errors->has('password'))
                     <span class="help-block">
@@ -49,6 +49,9 @@
                 </div><!-- /.col -->
             </div>
         </form>
+        <div class="text-center">
+            <a href="{{ route('register') }}">Crear Nueva Cuenta</a>
+        </div>
     </div><!-- /.login-box-body -->
     <div class="box-footer">
         <span class="text-center help-block" style="font-size: 0.75em">CODEWEB - <strong>{{ Carbon\Carbon::now()->year }}</strong></span>
