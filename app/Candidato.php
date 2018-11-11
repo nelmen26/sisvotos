@@ -27,4 +27,11 @@ class Candidato extends Model
     {
         return $this->belongsTo(Tipo::class);
     }
+
+    public function mesas()
+    {
+        return $this->belongsToMany(Mesa::class)
+                    ->withPivot('votos')
+                    ->withTimestamps();
+    }
 }

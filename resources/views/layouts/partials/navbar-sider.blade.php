@@ -21,8 +21,8 @@
         <i class="fa fa-dashboard"></i> <span>PANEL DE CONTROL</span>
       </a>
     </li>
-    <li>
-      <a href="#">
+    <li class="{{ active('registros') }}">
+      <a href="{{ route('registros.index') }}">
         <i class="fa fa-check-circle"></i> <span>REGISTRO DE VOTOS</span>
       </a>
     </li>

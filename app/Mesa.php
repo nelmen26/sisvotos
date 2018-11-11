@@ -24,4 +24,11 @@ class Mesa extends Model
     {
         return $this->belongsTo(Recinto::class);
     }
+
+    public function candidatos()
+    {
+        return $this->belongsToMany(Candidato::class)
+                    ->withPivot('votos')
+                    ->withTimestamps();
+    }
 }

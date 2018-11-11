@@ -19,8 +19,8 @@
 
       <div class="info-box-content">
         <span class="info-box-text">REGISTRO DE VOTOS</span>
-        <span class="info-box-number">123</span>
-        <a href="#" class="btn btn-link">INGRESAR</a>
+        <span class="info-box-number"> - </span>
+        <a href="{{ route('registros.index') }}" class="btn btn-link">INGRESAR</a>
       </div>
       <!-- /.info-box-content -->
     </div>
@@ -33,7 +33,7 @@
 
       <div class="info-box-content">
         <span class="info-box-text">RESULTADOS</span>
-        <span class="info-box-number">ESTADISTICOS</span>
+        <span class="info-box-number"> - </span>
         <a href="#" class="btn btn-link">INGRESAR</a>
       </div>
       <!-- /.info-box-content -->
