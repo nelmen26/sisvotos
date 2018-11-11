@@ -21,6 +21,21 @@
         <i class="fa fa-dashboard"></i> <span>PANEL DE CONTROL</span>
       </a>
     </li>
+    <li>
+      <a href="#">
+        <i class="fa fa-check-circle"></i> <span>REGISTRO DE VOTOS</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fa fa-pie-chart"></i> <span>RESULTADOS</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fa fa-user"></i> <span>CANDIDATOS</span>
+      </a>
+    </li>
     <li class="treeview {{ active('configuracion/*') }}">
       <a href="#"><i class="fa fa-cogs"></i> <span>CONFIGURACIONES</span>
         <span class="pull-right-container">

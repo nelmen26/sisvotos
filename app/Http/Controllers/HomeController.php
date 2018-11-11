@@ -3,6 +3,8 @@
 namespace SIS\Http\Controllers;
 
 use Illuminate\Http\Request;
+use SIS\User;
+use SIS\Candidato;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $users = User::all()->count();
+        $candidatos = Candidato::where('estado','A')->get()->count();
+        return view('home', compact('users','candidatos'));
     }
 }
