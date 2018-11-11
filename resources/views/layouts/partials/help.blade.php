@@ -11,15 +11,26 @@
       <h3 class="control-sidebar-heading">Modulos del Sistema</h3>
         <div class="form-group">
           <label class="control-sidebar-subheading">
-            TITULO DEL MODULO 1
+            REGISTRO DE VOTOS
           </label>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Se podra registrar los votos de los candidatos buscando primeramente el recinto y posteriormente el numero de mesa
+          </p>
+        </div>
+        <div class="form-group">
+          <label class="control-sidebar-subheading">
+            RESULTADOS DE LA VOTACION
+          </label>
+          <p>
+            Se visualiza el resultado global de los votos de los candidatos, ademas de la informacion de cuantas mesas se cerraron y las ultimas 6 mesas que cerraron
+          </p>
+        </div>
+        <div class="form-group">
+          <label class="control-sidebar-subheading">
+            CANDIDATOS
+          </label>
+          <p>
+            Se visualiza todos los candidatos que se postularon con su informacion detallada del candidato, la cantidad de votos que tienen y el porcentaje que obtienen de la votacion.
           </p>
         </div>
     </div>

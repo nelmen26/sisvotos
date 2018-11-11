@@ -59,6 +59,7 @@
     <!-- /.info-box -->
   </div>
   <!-- /.col -->
+  @if(auth()->user()->rol=='admin')
   <div class="col-md-3 col-sm-6 col-xs-12">
     <div class="info-box">
       <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
@@ -72,6 +73,7 @@
     </div>
     <!-- /.info-box -->
   </div>
+  @endif
   <!-- /.col -->
 </div>
 

@@ -51,7 +51,7 @@
         </form>
     </div><!-- /.login-box-body -->
     <div class="box-footer">
-        <span class="text-center help-block" style="font-size: 0.75em">Gobierno Autonomo Municipal de Sucre - <strong>{{ Carbon\Carbon::now()->year }}</strong></span>
+        <span class="text-center help-block" style="font-size: 0.75em">CODEWEB - <strong>{{ Carbon\Carbon::now()->year }}</strong></span>
     </div>
 </div><!-- /.login-box -->
 @endsection

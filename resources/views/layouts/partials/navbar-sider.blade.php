@@ -36,6 +36,7 @@
         <i class="fa fa-user"></i> <span>CANDIDATOS</span>
       </a>
     </li>
+    @if(auth()->user()->rol=='admin')
     <li class="treeview {{ active('configuracion/*') }}">
       <a href="#"><i class="fa fa-cogs"></i> <span>CONFIGURACIONES</span>
         <span class="pull-right-container">
@@ -70,6 +71,7 @@
         </li>
       </ul>
     </li>
+    @endif
   </ul>
   <!-- /.sidebar-menu -->
 </section>
