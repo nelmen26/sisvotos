@@ -11,6 +11,7 @@ class MesasTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(SIS\Mesa::class,50)->create();
+        // Descomentar si deseas datos falsos para realizar pruebas
+        //factory(SIS\Mesa::class,50)->create();
     }
 }

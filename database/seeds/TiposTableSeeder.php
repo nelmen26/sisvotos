@@ -12,17 +12,9 @@ class TiposTableSeeder extends Seeder
     public function run()
     {
         SIS\Tipo::create([
-            'nombre'=>'Rector',
-            'descripcion'=>'Rector de la Universidad',
+            'nombre'=>'TIPO ELECCION',
+            'descripcion'=>'CAMBIAR EL NOMBRE Y LA DESCRIPCION',
             'estado'=>'A',
         ]);
-
-        SIS\Tipo::create([
-            'nombre'=>'Vicerrector',
-            'descripcion'=>'Vicerrector de la Universidad',
-            'estado'=>'A',
-        ]);
-
-        // factory(SIS\Tipo::class,5)->create();
     }
 }

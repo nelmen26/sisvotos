@@ -2,6 +2,8 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     @include('layouts.partials.header')
+    <link rel="icon" type="image/png" href="{{ asset('icono.png') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <!--
 BODY TAG OPTIONS:

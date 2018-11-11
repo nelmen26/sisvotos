@@ -43,14 +43,17 @@ Route::group(['prefix' => 'configuracion'], function(){
 	Route::resource('candidatos', 'CandidatoController',['except' => 'show']);
 });
 
+// Rutas para el modulo de registro de votos
 Route::get('registros', 'RegistroController@index')->name('registros.index');
 Route::get('registros/{recinto}/mesas', 'RegistroController@mesas')->name('registros.mesas');
 Route::get('registros/{mesa}/votos', 'RegistroController@votos')->name('registros.votos');
 Route::post('registros/{mesa}/votos', 'RegistroController@storevotos')->name('registros.storevotos');
 
+// Rutas para los resultados de los votos
 Route::get('resultados', 'ResultadoController@index')->name('resultados.index');
 Route::get('resultados/candidatos', 'ResultadoController@candidatos')->name('resultados.candidatos');
 
+// Ruta del perfil y cambio de password del usuario
 Route::get('/perfil','UserController@perfil')->name('users.perfil');
 Route::put('users/{user}/password','UserController@updatepassword')->name('users.updatepassword');
 
