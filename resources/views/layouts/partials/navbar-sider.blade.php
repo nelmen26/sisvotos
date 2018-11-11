@@ -43,6 +43,11 @@
             <i class="fa fa-th"></i> Mesas
           </a>
         </li>
+        <li class="{{ active('configuracion/candidatos') }}">
+          <a href="{{ route('candidatos.index') }}">
+            <i class="fa fa-user"></i> Candidatos
+          </a>
+        </li>
         <li class="{{ active('configuracion/users') }}">
           <a href="{{ route('users.index') }}">
             <i class="fa fa-users"></i> Usuarios

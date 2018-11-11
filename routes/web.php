@@ -25,6 +25,7 @@ Route::group(['prefix' => 'configuracion'], function(){
 	Route::resource('tipos', 'TipoController',['except' => 'show']);
 	// Rutas para el modulo de recintos
 	Route::resource('recintos', 'RecintoController',['except' => 'show']);
+
 	// Rutas para importar Recintos atraves del un archivo excel
 	Route::get('recintos/importar', 'RecintoController@importar')->name('recintos.importar');
 	Route::post('recintos/importar', 'RecintoController@storeimportar')->name('recintos.storeimportar');
@@ -37,6 +38,9 @@ Route::group(['prefix' => 'configuracion'], function(){
 	// Rutas para importar Mesas de Recintos atraves del un archivo excel
 	Route::get('mesas/importar', 'MesaController@importar')->name('mesas.importar');
 	Route::post('mesas/importar', 'MesaController@storeimportar')->name('mesas.storeimportar');
+
+	// Rutas para el modulo de candidatos
+	Route::resource('candidatos', 'CandidatoController',['except' => 'show']);
 });
 
 Route::get('/perfil','UserController@perfil')->name('users.perfil');

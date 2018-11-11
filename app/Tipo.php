@@ -24,4 +24,9 @@ class Tipo extends Model
     {
         return $this->estado=='A' ? "HABILITADO" : "DESHABILITADO" ;
     }
+
+    public function candidatos()
+    {
+        return $this->hasMany(Candidato::class);
+    }
 }
