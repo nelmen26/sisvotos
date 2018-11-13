@@ -20,24 +20,22 @@
 	<div class="box-body">
     {!! Form::open(['route' => ['registros.storevotos', $mesa->id]]) !!}
     <div class="row">
-      <?php $numero = 1 ;?>
 			@foreach ($candidatos as $candidato)
 			<div class="col-md-3">
 				<!-- Profile Image -->
 				<div class="box" style="border-color:{{ $candidato->color }}">
 					<div class="box-body box-profile">
-            {!!Form::hidden("candidato".$numero,$candidato->id)!!}
+            {!!Form::hidden("candidatos[]",$candidato->id)!!}
             <img class="profile-user-img img-responsive img-circle" src="{{ asset('img/candidatos/'.$candidato->fotografia ) }}" alt="{{ $candidato->nombre }}" style="border-color:{{ $candidato->color }}">
             <h3 class="profile-username text-center">{{ $candidato->nombre }}</h3>
             <p class="text-muted text-center">{{ $candidato->apellidos }}</p>
             {{ Form::label('votos','Cantidad de Votos') }}
-            {{ Form::number('votos'.$numero,null,['class'=>'form-control','placeholder'=>'0']) }}
+            {{ Form::number('votos[]',null,['class'=>'form-control','placeholder'=>'0']) }}
 					</div>
 					<!-- /.box-body -->
 				</div>
 				<!-- /.box -->
       </div>
-      <?php $numero++; ?>
       @endforeach
     </div>
     <div class="text-center">
