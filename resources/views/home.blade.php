@@ -95,7 +95,7 @@
           <h1 class="lead text-center">
             SISTEMA DE REGISTRO Y CONTEO DE VOTOS
           </h1>
-          <img src="{{ asset('img/logo.png') }}" class="center-block img-resonsive" width="12%">
+          <img src="{{ asset('img/logo.png') }}" class="center-block img-responsive logo">
           <p class="lead text-center">
             Sistema web desarrollado para el registro de los votos que obtuvieron los candidatos en las elecciones,
             para realizar el respectivo conteo de los votos y mostrar los resultados estadisticos de quien gano las elecciones

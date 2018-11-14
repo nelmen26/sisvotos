@@ -31,9 +31,16 @@ sudo chmod 777 -R bootstrap/cache
 ```
 
 **Configuracion del archivo `.env` y la base de datos**
-Se debe modificar los siguiente datos del archivo `.env`
+Primeramente se debe copiar el archivo `.env-example` y renombrarlo con `.env` esto se puede realizar en la terminal de linux con el siguiente comando
+```shell
+sudo cp .env.example .env
+```
+Una vez copiado el archivo `.env` debe modificar los siguiente datos del archivo `.env`
 
 ```php
+APP_NAME=SIS-VOTOS
+APP_SUB=VOT
+
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -55,7 +62,24 @@ php artisan migrate:refresh --seed
 Una vez ejectutados las migraciones y el seeder inicial para ingresar al sistema debe abrir un navegador web y escribir el siguiente enlace:  [http://localhost/sisvotos/public](http://localhost/sisvotos/public)
 
 **Usuarios por defecto en el sistema**
-Nombre Usuario | Password | Rol
-:---:|:---:|:---:
-admin| S1st3m4s|**admin**
-encargado1|123456|**encargado**
+<table>
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Password</th>
+            <th>Rol</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>admin</td>
+            <td>S1st3m4s</td>
+            <td>admin</td>
+        </tr>
+        <tr>
+            <td>encargado1</td>
+            <td>123456</td>
+            <td>encargado</td>
+        </tr>
+    </tbody>
+</table>

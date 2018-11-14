@@ -7,3 +7,13 @@
   background-color: coral !important;
   color:#fff !important;
 }
+
+.logo{
+  width: 15%;
+}
+
+@media (max-width: 768px) {
+  .logo{
+    width: 40%;
+  }
+}
