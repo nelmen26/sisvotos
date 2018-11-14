@@ -46,7 +46,8 @@ Route::group(['prefix' => 'configuracion'], function(){
 // Rutas para el modulo de registro de votos
 Route::get('registros', 'RegistroController@index')->name('registros.index');
 Route::get('registros/{recinto}/mesas', 'RegistroController@mesas')->name('registros.mesas');
-Route::get('registros/{mesa}/votos', 'RegistroController@votos')->name('registros.votos');
+Route::get('registros/{mesa}/tipos', 'RegistroController@tipos')->name('registros.tipos');
+Route::get('registros/{mesa}/{tipo}/votos', 'RegistroController@votos')->name('registros.votos');
 Route::post('registros/{mesa}/votos', 'RegistroController@storevotos')->name('registros.storevotos');
 
 // Rutas para los resultados de los votos

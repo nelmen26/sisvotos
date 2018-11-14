@@ -20,7 +20,8 @@
 	<div class="box-body">
     {!! Form::open(['route' => ['registros.storevotos', $mesa->id]]) !!}
     <div class="row">
-      <?php $numero = 0 ?>
+			<?php $numero = 0 ?>
+			{{ Form::hidden('tipo_id',$tipo->id) }}
 			@foreach ($candidatos as $candidato)
 			<div class="col-md-3">
 				<!-- Profile Image -->

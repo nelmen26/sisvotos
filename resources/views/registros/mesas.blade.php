@@ -27,7 +27,7 @@
 	<div class="box-body">
     @foreach ($mesas as $mesa)
       <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2" style="padding-left:0;">
-        <a href="{{ $mesa->estado=='D' ? '' : route('registros.votos', $mesa->id) }}" class="btn btn-app btn-block bg-{{ $mesa->estado=='A' ? 'gray' : 'red' }}" {{ $mesa->estado=='D' ? 'disabled' : '' }}>
+        <a href="{{ $mesa->estado=='D' ? '' : route('registros.tipos', $mesa->id) }}" class="btn btn-app btn-block bg-{{ $mesa->estado=='A' ? 'gray' : 'red' }}" {{ $mesa->estado=='D' ? 'disabled' : '' }}>
           <i class="fa fa-th"></i> {{ $mesa->nombre }}
         </a>
       </div>

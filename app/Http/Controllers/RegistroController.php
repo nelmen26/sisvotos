@@ -7,6 +7,7 @@ use SIS\Http\Requests\RegistroRequest;
 use SIS\Recinto;
 use SIS\Mesa;
 use SIS\Candidato;
+use SIS\Tipo;
 
 use Toastr;
 
@@ -24,22 +25,32 @@ class RegistroController extends Controller
         return view('registros.mesas',compact('mesas'));
     }
 
-    public function votos(Mesa $mesa)
+    public function tipos(Mesa $mesa)
     {
-        $candidatos = Candidato::where('tipo_id',1)->where('estado','A')->orderBy('id','ASC')->get();
-        return view('registros.votos', compact('candidatos','mesa'));
+        $tipos = Tipo::where('estado','A')->get();
+        return view('registros.tipos',compact('tipos','mesa'));
+    }
+
+    public function votos(Mesa $mesa, Tipo $tipo)
+    {
+        $candidatos = Candidato::where('tipo_id',$tipo->id)->where('estado','A')->orderBy('id','ASC')->get();
+        return view('registros.votos', compact('candidatos','mesa','tipo'));
     }
 
     public function storevotos(RegistroRequest $request, Mesa $mesa)
     {
-        $candidatos = Candidato::where('tipo_id',1)->where('estado','A')->orderBy('id','ASC')->get();
+        $candidatos = Candidato::where('tipo_id',$request->tipo_id)->where('estado','A')->orderBy('id','ASC')->get();
 		$lista = [];
         for ($i=1; $i <= count($candidatos); $i++) { 
             $lista = array_add($lista,$request->candidatos[$i-1],['votos'=>$request->votos[$i-1]]);
         }
-        $mesa->candidatos()->sync($lista);
-        $mesa->estado = "D";
-        $mesa->save();
+        $mesa->candidatos()->attach($lista);
+        $candidatos = Candidato::where('estado','A')->get();
+        if($mesa->candidatos->count()==$candidatos->count())
+        {
+            $mesa->estado = "D";
+            $mesa->save();
+        }
         Toastr::success('Registro correcto de votos','Correcto!');
         return redirect()->route('registros.mesas',$mesa->recinto_id);
     }
