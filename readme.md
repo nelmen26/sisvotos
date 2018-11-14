@@ -29,12 +29,21 @@ Se debe dar permision a las siguientes carpetas `storage` `bootstrap/cache` con 
 sudo chmod 777 -R storage/
 sudo chmod 777 -R bootstrap/cache
 ```
+Una vez dado los permisos necesarios desde la terminal dentro del proyecto `sisvotos` ejecutar el siguiente comando
+
+```shell
+composer update
+```
+> **Nota.-** Se debe tener instalado composer en tu sistema, ademas se debe habilitar el modulo gd de php con el comando `sudo apt-get install php-gd`
 
 **Configuracion del archivo `.env` y la base de datos**
+
 Primeramente se debe copiar el archivo `.env-example` y renombrarlo con `.env` esto se puede realizar en la terminal de linux con el siguiente comando
+
 ```shell
 sudo cp .env.example .env
 ```
+
 Una vez copiado el archivo `.env` debe modificar los siguiente datos del archivo `.env`
 
 ```php

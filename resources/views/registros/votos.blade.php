@@ -20,6 +20,7 @@
 	<div class="box-body">
     {!! Form::open(['route' => ['registros.storevotos', $mesa->id]]) !!}
     <div class="row">
+      <?php $numero = 0 ?>
 			@foreach ($candidatos as $candidato)
 			<div class="col-md-3">
 				<!-- Profile Image -->
@@ -29,11 +30,19 @@
             <img class="profile-user-img img-responsive img-circle" src="{{ asset('img/candidatos/'.$candidato->fotografia ) }}" alt="{{ $candidato->nombre }}" style="border-color:{{ $candidato->color }}">
             <h3 class="profile-username text-center">{{ $candidato->nombre }}</h3>
             <p class="text-muted text-center">{{ $candidato->apellidos }}</p>
-            {{ Form::label('votos','Cantidad de Votos') }}
-            {{ Form::number('votos[]',null,['class'=>'form-control','placeholder'=>'0']) }}
+            <div class="form-group{{ $errors->has('votos.'. $numero) ? ' has-error' : '' }}">
+                {{ Form::label('votos','Cantidad de Votos') }}
+                {{ Form::number('votos[]',null,['class'=>'form-control','placeholder'=>'0']) }}
+                @if ($errors->has('votos.'. $numero))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('votos.'. $numero) }}</strong>
+                    </span>
+                @endif
+            </div>
 					</div>
 					<!-- /.box-body -->
-				</div>
+        </div>
+        <?php $numero++ ?>
 				<!-- /.box -->
       </div>
       @endforeach

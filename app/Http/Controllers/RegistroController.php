@@ -3,6 +3,7 @@
 namespace SIS\Http\Controllers;
 
 use Illuminate\Http\Request;
+use SIS\Http\Requests\RegistroRequest;
 use SIS\Recinto;
 use SIS\Mesa;
 use SIS\Candidato;
@@ -29,7 +30,7 @@ class RegistroController extends Controller
         return view('registros.votos', compact('candidatos','mesa'));
     }
 
-    public function storevotos(Request $request, Mesa $mesa)
+    public function storevotos(RegistroRequest $request, Mesa $mesa)
     {
         $candidatos = Candidato::where('tipo_id',1)->where('estado','A')->orderBy('id','ASC')->get();
 		$lista = [];
@@ -40,6 +41,6 @@ class RegistroController extends Controller
         $mesa->estado = "D";
         $mesa->save();
         Toastr::success('Registro correcto de votos','Correcto!');
-        return redirect()->route('registros.index');
+        return redirect()->route('registros.mesas',$mesa->recinto_id);
     }
 }
