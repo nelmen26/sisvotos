@@ -5,39 +5,46 @@ namespace SIS\Http\Controllers;
 use Illuminate\Http\Request;
 use SIS\Candidato;
 use SIS\Mesa;
+use SIS\Tipo;
 
 class ResultadoController extends Controller
 {
     public function index()
     {
-        $candidatos = Candidato::where('tipo_id',1)->where('estado','A')->get();
-        $labels = collect();
-        $datos = collect();
-        $colores = collect();
-        $total = 0;
-        foreach ($candidatos as $candidato) {
-            $labels->push($candidato->nombre. ' ' .$candidato->apellidos);
-            $colores->push($candidato->color);
-            $datos->push($candidato->mesas()->sum('votos'));
-            $total += $candidato->mesas()->sum('votos');
+        $graficos = collect();
+        $totales = collect();
+        $tipos = Tipo::where('estado','A')->get();
+        foreach ($tipos as $tipo) {
+            $labels = collect();
+            $datos = collect();
+            $colores = collect();
+            $total = 0;
+            foreach ($tipo->candidatos->where('estado','A') as $candidato) {
+                $labels->push($candidato->nombre. ' ' .$candidato->apellidos);
+                $colores->push($candidato->color);
+                $datos->push($candidato->mesas()->sum('votos'));
+                $total += $candidato->mesas()->sum('votos');
+            }
+            $totales->push($total);
+            $chartjs = app()->chartjs
+                            ->name('pieChartResultados'.$tipo->id)
+                            ->type('pie')
+                            ->size(['width' => 250, 'height' => 150])
+                            ->labels($labels->all())
+                            ->datasets([
+                                [
+                                    'backgroundColor' => $colores->all(),
+                                    'hoverBackgroundColor' => $colores->all(),
+                                    'data' => $datos->all()
+                                ]
+                            ])
+                            ->options([
+                                'legend' => [
+                                    'display' =>false,
+                                    ]
+                            ]);
+            $graficos->push($chartjs);
         }
-        $chartjs = app()->chartjs
-                        ->name('pieChartResultados')
-                        ->type('pie')
-                        ->size(['width' => 250, 'height' => 150])
-                        ->labels($labels->all())
-                        ->datasets([
-                            [
-                                'backgroundColor' => $colores->all(),
-                                'hoverBackgroundColor' => $colores->all(),
-                                'data' => $datos->all()
-                            ]
-                        ])
-                        ->options([
-                            'legend' => [
-                                'display' =>false,
-                            ]
-                        ]);
         
         $abiertos = Mesa::where('estado','A')->count();
         $cerrados = Mesa::where('estado','D')->count();
@@ -59,7 +66,7 @@ class ResultadoController extends Controller
                             ]
                         ]);
         $mesas = Mesa::where('estado','D')->orderBy('updated_at','DESC')->get()->take(6);
-        return view('resultados.index',compact('chartjs','candidatos','total','chartjs2','abiertos','cerrados','mesas'));
+        return view('resultados.index',compact('graficos','tipos','totales','chartjs2','abiertos','cerrados','mesas'));
     }
 
     public function candidatos()

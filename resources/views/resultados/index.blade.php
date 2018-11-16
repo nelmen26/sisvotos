@@ -13,9 +13,11 @@
 @endsection
 
 @section('main-content')
+<?php $numero = 0; ?>
+@foreach ($tipos as $tipo)
 <div class="box">
 	<div class="box-header with-border">
-	 	<h3 class="box-title"><i class="fa fa-pie-chart"></i> RESULTADOS ESTADISTICOS DE CONTEO DE VOTOS</h3>
+	 	<h3 class="box-title"><i class="fa fa-pie-chart"></i> RESULTADOS ESTADISTICOS DE CONTEO DE VOTOS {{ $tipo->nombre }}</h3>
 
 	 	<div class="box-tools">
 	 		<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -27,21 +29,21 @@
 	<div class="box-body">
 		<div class="row">
       <div class="col-md-8">
-        {!! $chartjs->render() !!}
+        {!! $graficos[$numero]->render() !!}
       </div>
       <div class="col-md-4">
         <p class="text-center">
           <strong>RESULTADOS</strong>
         </p>
         
-        @foreach ($candidatos as $candidato)
+        @foreach ($tipo->candidatos->where('estado','A') as $key => $candidato)
         <div class="progress-group">
           <span class="progress-text">{{ $candidato->nombre }} {{ $candidato->apellidos }}</span>
-          <span class="progress-number"><b>{{ $candidato->mesas()->sum('votos') }}</b>/{{ $total }}</span>
+          <span class="progress-number"><b>{{ $candidato->mesas()->sum('votos') }}</b>/{{ $totales[$numero] }}</span>
 
           <div class="progress ">
-          <div class="progress-bar" style="background-color:{{ $candidato->color }} ; width: {{ $total==0 ? '0': round($candidato->mesas()->sum('votos') * 100 / $total,1) }}%">
-              {{ $total==0 ? '0': round($candidato->mesas()->sum('votos') * 100 / $total,1) }}%
+          <div class="progress-bar" style="background-color:{{ $candidato->color }} ; width: {{ $totales[$numero]==0 ? '0': round($candidato->mesas()->sum('votos') * 100 / $totales[$numero],1) }}%">
+              {{ $totales[$numero]==0 ? '0': round($candidato->mesas()->sum('votos') * 100 / $totales[$numero],1) }}%
           </div>
           </div>
         </div>
@@ -51,6 +53,9 @@
   </div>
 	<!-- /.box-body -->
 </div>
+<?php $numero++; ?>
+@endforeach
+
 <div class="row">
   <div class="col-md-4">
     <div class="box">
