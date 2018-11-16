@@ -25,7 +25,7 @@ class TipoRequest extends FormRequest
     {
         return [
             'nombre' => 'required|min:3',
-            'estado' => 'required|min:1',
+            // 'estado' => 'required|min:1',
         ];
     }
 }

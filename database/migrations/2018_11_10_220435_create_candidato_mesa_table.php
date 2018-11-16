@@ -15,9 +15,10 @@ class CreateCandidatoMesaTable extends Migration
     {
         Schema::create('candidato_mesa', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('votos')->default(0);
+            
             $table->integer('candidato_id')->unsigned();
             $table->integer('mesa_id')->unsigned();
-            $table->integer('votos')->default(0);
             $table->timestamps();
 
             $table->foreign('candidato_id')->references('id')->on('candidatos')->onDelete('cascade')->onUpdate('cascade');

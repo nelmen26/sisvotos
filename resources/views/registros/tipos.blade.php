@@ -15,7 +15,7 @@
 @section('main-content')
 <div class="box">
 	<div class="box-header with-border">
-	 	<h3 class="box-title"><i class="fa fa-list"></i> LISTA DE TIPO DE ELECCION</h3>
+	 	<h3 class="box-title"><i class="fa fa-list"></i> LISTA DE CARGOS A ELECCION</h3>
 
 	 	<div class="box-tools">
 	 		<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -33,8 +33,9 @@
     @endforeach  
   </div>
 	<!-- /.box-body -->
-	<div class="box-footer text-center">
-		<a href="{{ route('registros.index') }}" class="btn btn-flat btn-warning">VOLVER ATRAS</a>
+	<div class="text-center">
+		<a href="{{ route('registros.mesas',$mesa->recinto->id) }}" class="btn btn-flat btn-warning">VOLVER ATRAS</a>
+		<a href="{{ route('registros.index') }}" class="btn btn-flat btn-danger">CANCELAR</a>
 	</div>
 </div>
 

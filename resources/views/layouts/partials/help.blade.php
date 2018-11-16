@@ -14,7 +14,7 @@
             REGISTRO DE VOTOS
           </label>
           <p>
-            Se podra registrar los votos de los candidatos buscando primeramente el recinto y posteriormente el numero de mesa
+            Se podra registrar los votos de los candidatos buscando en principio el recinto y posteriormente el numero de mesa segun corresponda.
           </p>
         </div>
         <div class="form-group">

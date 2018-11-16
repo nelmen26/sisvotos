@@ -94,6 +94,7 @@ class MesaController extends Controller
                 'nombre' => 'Mesa - '.$numero_mesa++,
                 'recinto_id' => $request->recinto_id,
                 'estado' => 'A',
+                'tipo' => $request->tipo,
             ])->save();
         }
         Toastr::success('Se genero las mesas correspondiente del recinto','Correcto!');
@@ -112,5 +113,21 @@ class MesaController extends Controller
 
         Toastr::success('Se importo correctamente las Mesas','Correcto!');
         return redirect()->route('mesas.index');   
+    }
+
+    public function darBaja(Mesa $mesa)
+    {
+        $mesa->estado = 'D';
+        $mesa->save();
+        Toastr::error('Mesa dado de baja correctamente!','Baja!');
+        return back();
+    }
+
+    public function darAlta(Mesa $mesa)
+    {
+        $mesa->estado = 'A';
+        $mesa->save();
+        Toastr::success('Mesa dado de alta correctamente!','Alta!');
+        return back();
     }
 }

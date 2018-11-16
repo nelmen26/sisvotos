@@ -23,6 +23,9 @@ Route::group(['prefix' => 'configuracion'], function(){
 	Route::resource('users', 'UserController',['except' => 'show']);
 	// Rutas para el modulo de tipos
 	Route::resource('tipos', 'TipoController',['except' => 'show']);
+	Route::get('/tipos/{tipo}/darbaja', 'TipoController@darBaja')->name('tipos.darbaja');
+	Route::get('/tipos/{tipo}/daralta', 'TipoController@darAlta')->name('tipos.daralta');
+
 	// Rutas para el modulo de recintos
 	Route::resource('recintos', 'RecintoController',['except' => 'show']);
 
@@ -32,15 +35,22 @@ Route::group(['prefix' => 'configuracion'], function(){
 
 	// Rutas para el modulo de mesas
 	Route::resource('mesas', 'MesaController',['except' => 'show']);
+	Route::get('/mesas/{mesa}/darbaja', 'MesaController@darBaja')->name('mesas.darbaja');
+	Route::get('/mesas/{mesa}/daralta', 'MesaController@darAlta')->name('mesas.daralta');
+
 	// Rutas para generar Mesas de Recintos automaticamente
 	Route::get('mesas/generar', 'MesaController@generar')->name('mesas.generar');
 	Route::post('mesas/generar', 'MesaController@storegenerar')->name('mesas.storegenerar');
+
 	// Rutas para importar Mesas de Recintos atraves del un archivo excel
 	Route::get('mesas/importar', 'MesaController@importar')->name('mesas.importar');
 	Route::post('mesas/importar', 'MesaController@storeimportar')->name('mesas.storeimportar');
 
 	// Rutas para el modulo de candidatos
 	Route::resource('candidatos', 'CandidatoController',['except' => 'show']);
+
+	Route::get('/candidatos/{candidato}/darbaja', 'CandidatoController@darBaja')->name('candidatos.darbaja');
+	Route::get('/candidatos/{candidato}/daralta', 'CandidatoController@darAlta')->name('candidatos.daralta');
 });
 
 // Rutas para el modulo de registro de votos

@@ -19,8 +19,9 @@ class CreateCandidatosTable extends Migration
             $table->string('nombre');
             $table->string('apellidos');
             $table->string('color');
-            $table->integer('tipo_id')->unsigned();
             $table->enum('estado',['A','D'])->default('A');
+            
+            $table->integer('tipo_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('tipo_id')->references('id')->on('tipos')->onDelete('cascade')->onUpdate('cascade');

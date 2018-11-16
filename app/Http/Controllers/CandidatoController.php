@@ -23,7 +23,8 @@ class CandidatoController extends Controller
     public function index(Request $request)
     {
         $candidatos = Candidato::search($request->buscar)->orderBy('id','ASC')->get();
-        return view('candidatos.index',compact('candidatos'));
+        $tipos = Tipo::where('estado','A')->get();
+        return view('candidatos.index',compact('candidatos','tipos'));
     }
 
     public function create()
@@ -81,6 +82,22 @@ class CandidatoController extends Controller
     {
         $candidato->delete();
         Toastr::error('Candidato eliminado correctamente','Eliminado!');
+        return back();
+    }
+
+    public function darBaja(Candidato $candidato)
+    {
+        $candidato->estado = 'D';
+        $candidato->save();
+        Toastr::error('Candidato dado de baja correctamente!','Baja!');
+        return back();
+    }
+
+    public function darAlta(Candidato $candidato)
+    {
+        $candidato->estado = 'A';
+        $candidato->save();
+        Toastr::success('Candidato dado de alta correctamente!','Alta!');
         return back();
     }
 }

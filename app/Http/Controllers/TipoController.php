@@ -50,7 +50,7 @@ class TipoController extends Controller
     {
         $tipo = Tipo::create($request->all());
 
-        Toastr::success('Tipo creado con exito','Correcto!');
+        Toastr::success('Cargo creado con exito','Correcto!');
 
         return redirect()->route('tipos.index');
     }
@@ -64,14 +64,30 @@ class TipoController extends Controller
     {
         $tipo->fill($request->all());
         $tipo->save();
-        Toastr::info('Tipo actualizado con exito','Actualizado!');
+        Toastr::info('Cargo actualizado con exito','Actualizado!');
         return redirect()->route('tipos.index');
     }
 
     public function destroy(Tipo $tipo)
     {
         $tipo->delete();
-        Toastr::error('Tipo eliminado correctamente','Eliminado!');
+        Toastr::error('Cargo eliminado correctamente','Eliminado!');
+        return back();
+    }
+
+    public function darBaja(Tipo $tipo)
+    {
+        $tipo->estado = 'D';
+        $tipo->save();
+        Toastr::error('Cargo dado de baja correctamente!','Baja!');
+        return back();
+    }
+
+    public function darAlta(Tipo $tipo)
+    {
+        $tipo->estado = 'A';
+        $tipo->save();
+        Toastr::success('Cargo dado de alta correctamente!','Alta!');
         return back();
     }
 }

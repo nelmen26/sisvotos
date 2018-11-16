@@ -17,3 +17,43 @@
     width: 40%;
   }
 }
+
+
+/* #circulo {
+	width: 10rem;
+  height: 10rem;
+	border-radius: 50%;
+	background: rgb(183, 214, 6);
+	display: table-cell;
+	justify-content: center;
+	align-items: center;
+  text-align: center;
+  margin:0 auto;
+  display: block;
+}
+#circulo > p {
+	font-family: sans-serif;
+	color: rgb(7, 7, 7);
+	font-size: 3rem;
+  font-weight: bold;
+  height: 10rem;
+  display: block;
+  margin-top:4rem;
+  
+} */
+
+.badge {
+  height: 100px;
+  width: 100px;
+  display: table-cell;
+  text-align: center;
+  font-size:40px;
+  /* vertical-align: middle; */
+  border-radius: 50%;
+  background: #8CC657;
+  color:black;
+  display: block;
+  margin:0 auto;
+  margin-top: 50px;
+  line-height: 100px;
+}

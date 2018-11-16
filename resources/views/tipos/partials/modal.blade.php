@@ -5,12 +5,12 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title">Eliminar tipo de eleccion</h4>
+        <h4 class="modal-title">Eliminar el cargo a eleccion</h4>
       </div>
       {!! Form::open(['route' => ['tipos.destroy',$id], 'method' => 'DELETE']) !!}
       <div class="modal-body">
         <p>
-          Desea eliminar el tipo de eleccion {{ $nombre }}
+          Desea eliminar el cargo a eleccion {{ $nombre }}
         </p>
       </div>
       <div class="modal-footer">

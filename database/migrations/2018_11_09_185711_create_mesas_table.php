@@ -16,9 +16,12 @@ class CreateMesasTable extends Migration
         Schema::create('mesas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->integer('recinto_id')->unsigned();
             $table->integer('total_votar')->default(0);
             $table->enum('estado',['A','D'])->default('A');
+            $table->enum('tipo', ['docente','estudiante']);
+
+            $table->integer('recinto_id')->unsigned();
+
             $table->timestamps();
 
             $table->foreign('recinto_id')->references('id')->on('recintos')->onDelete('cascade')->onUpdate('cascade');

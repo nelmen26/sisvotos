@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Mesa extends Model
 {
     protected $fillable = [
-        'nombre', 'recinto_id', 'total_votar', 'estado',
+        'nombre', 'recinto_id', 'total_votar', 'estado', 'tipo',
     ];
 
     public function setNombreAttribute($value)

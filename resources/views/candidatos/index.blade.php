@@ -46,8 +46,12 @@
 			</div>
 		</div>
 		<br>
-    <div class="row">
-			@foreach ($candidatos as $candidato)
+		@foreach($tipos as $tipo)
+		<h1 class="box-title">
+			{{ $tipo->nombre }}
+		</h1>
+    	<div class="row">
+			@foreach ($tipo->candidatos as $candidato)
 			<div class="col-md-3">
 				<!-- Profile Image -->
 				<div class="box" style="border-color:{{ $candidato->color }}">
@@ -58,21 +62,38 @@
 
 							<ul class="list-group list-group-unbordered">
 								<li class="list-group-item">
-								<b>Tipo de Eleccion</b> <a class="pull-right">{{ $candidato->tipo->nombre }}</a>
+								<b>Cargo a Eleccion</b> <a class="pull-right">{{ $candidato->tipo->nombre }}</a>
 								</li>
 							</ul>
 
 							<span class="label label-{{ $candidato->estado == 'A' ? 'success' : 'danger' }} pull-left">{{ $candidato->fullestado }}</span>
 							<a href="" data-target="#modal-delete-{{ $candidato->id }}" data-toggle="modal" class="btn btn-xs btn-flat btn-danger pull-right"><i class="fa fa-trash"></i> Eliminar</a>
 							<a href="{{ route('candidatos.edit',$candidato->id) }}" class="btn btn-xs btn-flat btn-info pull-right"><i class="fa fa-edit"></i> Editar</a>
+							@if($candidato->estado=='D')
+							
+							<a href="" data-target="#modal-alta-{{ $candidato->id }}" data-toggle="modal" class="btn btn-xs btn-flat btn-success pull-right"><i class="fa  fa-arrow-circle-o-up"></i> Dar de Alta</a>
+													
+							@else
+							
+							<a href="" data-target="#modal-baja-{{ $candidato->id }}" data-toggle="modal" class="btn btn-xs btn-flat btn-danger pull-right"><i class="fa  fa-arrow-circle-o-down"></i> Dar de Baja</a>
+							
+							@endif
 					</div>
 					<!-- /.box-body -->
 				</div>
 				<!-- /.box -->
 			</div>
+			@if($candidato->estado=='A')
+			@include('candidatos.partials.baja')
+			@else
+			@include('candidatos.partials.alta')
+			@endif
 			@include('candidatos.partials.modal')
 			@endforeach
 		</div>
+		<br>
+		<br>
+		@endforeach
     </div>
 	<!-- /.box-body -->
 </div>

@@ -14,6 +14,9 @@
 
 @section('main-content')
 <div class="box">
+	@if($tipos->count()==0)
+		<h1 class="text-center">NO EXISTE CANDIDATOS</h1>
+	@else
 	<div class="box-header with-border">
 	 	<h3 class="box-title"><i class="fa fa-list"></i> LISTA DE RECINTOS DONDE SE VOTA</h3>
 
@@ -47,7 +50,8 @@
       </a>
     @endforeach
     {!! $recintos->render() !!}   
-  </div>
+	</div>
+	@endif
 	<!-- /.box-body -->
 </div>
 

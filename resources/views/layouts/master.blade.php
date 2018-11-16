@@ -60,5 +60,6 @@ desired effect
     </div>
     <!-- ./wrapper -->
     @include('layouts.partials.scripts')
+    @yield('javascript')
 </body>
 </html>

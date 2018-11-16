@@ -28,7 +28,7 @@
 	</div>
 	<div class="box-body">
       {!! Form::open(['route' => 'mesas.storegenerar']) !!}
-			<div class="form-group{{ $errors->has('recinto_id') ? ' has-error' : '' }}">
+			{{-- <div class="form-group{{ $errors->has('recinto_id') ? ' has-error' : '' }}">
         {{ Form::label('recinto_id','RECINTOS') }}
         {{ Form::select('recinto_id', $recintos,null,['class'=>'form-control select', 'placeholder' => 'SELECCIONE UN RECINTO']) }}
         @if ($errors->has('recinto_id'))
@@ -36,7 +36,35 @@
                   <strong>{{ $errors->first('recinto_id') }}</strong>
               </span>
           @endif
-      </div>
+      </div> --}}
+
+      <div class="row">
+            <div class="col-md-6">
+                <div class="form-group{{ $errors->has('recinto_id') ? ' has-error' : '' }}">
+                    {{ Form::label('recinto_id','RECINTOS') }}
+                    {{ Form::select('recinto_id', $recintos,null,['class'=>'form-control select', 'placeholder' => 'SELECCIONE UN RECINTO']) }}
+                    @if ($errors->has('recinto_id'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('recinto_id') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group{{ $errors->has('tipo') ? ' has-error' : '' }}">
+                    {{ Form::label('tipo', 'TIPO') }}
+                    {{ Form::select('tipo', ['docente' => 'DOCENTE', 'estudiante' => 'ESTUDIANTE'], null,['class'=> 'form-control select', 'id' => 'tipo','placeholder' => 'Seleccione el tipo']) }}
+                
+                    @if ($errors->has('tipo'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('tipo') }}</strong>
+                        </span>
+                    @endif
+                
+                </div>
+            </div>
+        </div>
+
       <div class="row">
         <div class="col-md-6">
           <div class="form-group{{ $errors->has('cantidad') ? ' has-error' : '' }}">

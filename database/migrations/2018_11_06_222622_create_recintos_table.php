@@ -17,7 +17,7 @@ class CreateRecintosTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('direccion')->nullable();
-            $table->enum('estado',['A','D']);
+            $table->enum('estado',['A','D'])->default('A');
             $table->timestamps();
         });
     }

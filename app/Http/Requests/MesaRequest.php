@@ -26,8 +26,8 @@ class MesaRequest extends FormRequest
         return [
             'nombre' => 'required|min:3',
             'recinto_id' => 'required|integer',
-            'total_votar' => 'integer',
-            'estado' => 'required|min:1',
+            // 'total_votar' => 'integer',
+            // 'estado' => 'required|min:1',
         ];
     }
 }

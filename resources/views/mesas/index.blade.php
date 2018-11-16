@@ -42,6 +42,8 @@
         		<tr class="bg-black">
 					<th>Mesa</th>
 					<th>Recinto</th>
+					<th>Tipo</th>
+					<th>Habilitados</th>
 					{{-- <th width="15%">Votos habilitados</th> --}}
 					{{-- <th width="5%">Estado</th> --}}
 					<th width="8%">&nbsp;</th>
@@ -69,6 +71,8 @@
         columns: [
             { data: 'nombre'},
             { data: 'recinto.nombre'},
+            { data: 'tipo'},
+            { data: 'total_votar'},
             // { data: 'total_votar'},
             // { data: 'estado'},
             { data: 'action', orderable: false, searchable: false},

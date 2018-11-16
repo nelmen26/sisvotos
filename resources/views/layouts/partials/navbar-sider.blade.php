@@ -46,7 +46,7 @@
       <ul class="treeview-menu">
         <li class="{{ active('configuracion/tipos') }}">
           <a href="{{ route('tipos.index') }}">
-            <i class="fa fa-list"></i> Tipo de Eleccion
+            <i class="fa fa-list"></i> Cargos a Eleccion
           </a>
         </li>
         <li class="{{ active('configuracion/recintos') }}">

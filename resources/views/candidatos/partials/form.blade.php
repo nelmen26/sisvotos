@@ -25,8 +25,8 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group{{ $errors->has('tipo_id') ? ' has-error' : '' }}">
-            {{ Form::label('tipo_id','Tipo de Eleccion') }}
-            {{ Form::select('tipo_id', $tipos, null,['class'=>'form-control', 'placeholder' => 'SELECCIONE UN TIPO DE ELECCION']) }}
+            {{ Form::label('tipo_id','Cargo a Eleccion') }}
+            {{ Form::select('tipo_id', $tipos, null,['class'=>'form-control', 'placeholder' => 'SELECCIONE UN CARGO A ELECCION']) }}
             @if ($errors->has('tipo_id'))
                 <span class="help-block">
                     <strong>{{ $errors->first('tipo_id') }}</strong>
@@ -65,7 +65,7 @@
             @endif
         </div>
     </div>
-    <div class="col-md-6">
+    {{-- <div class="col-md-6">
         <div class="form-group{{ $errors->has('estado') ? ' has-error' : '' }}">
             {{ Form::label('estado','Estado') }}
             {{ Form::select('estado', ['A'=>'HABILITADO','D'=>'DESHABILITADO'],null,['class'=>'form-control', 'placeholder' => 'SELECCIONE UN ESTADO']) }}
@@ -75,7 +75,7 @@
                 </span>
             @endif
         </div>
-    </div>
+    </div> --}}
 </div>
 
 <div class="form-group text-center">
