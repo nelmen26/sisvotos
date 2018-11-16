@@ -71,11 +71,16 @@ class ResultadoController extends Controller
 
     public function candidatos()
     {
-        $candidatos = Candidato::where('tipo_id',1)->where('estado','A')->get();
-        $total = 0;
-        foreach ($candidatos as $candidato) {
-            $total += $candidato->mesas()->sum('votos');
+        $tipos = Tipo::where('estado','A')->get();
+        $totales = collect();
+        foreach ($tipos as $tipo) {
+            $total = 0;
+            foreach ($tipo->candidatos->where('estado','A') as $candidato) {
+                $total += $candidato->mesas()->sum('votos');
+            }
+            $totales->push($total);
         }
-        return view('resultados.candidatos',compact('candidatos','total'));
+        
+        return view('resultados.candidatos',compact('tipos','totales'));
     }
 }
