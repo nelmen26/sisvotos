@@ -17,6 +17,7 @@
             Se podra registrar los votos de los candidatos buscando en principio el recinto y posteriormente el numero de mesa segun corresponda.
           </p>
         </div>
+        @if(auth()->user()->rol == 'admin' || auth()->user()->rol == 'encargado')
         <div class="form-group">
           <label class="control-sidebar-subheading">
             RESULTADOS DE LA VOTACION
@@ -33,6 +34,7 @@
             Se visualiza todos los candidatos que se postularon con su informacion detallada del candidato, la cantidad de votos que tienen y el porcentaje que obtienen de la votacion.
           </p>
         </div>
+        @endif
     </div>
     <!-- /.tab-pane -->
   </div>

@@ -11,10 +11,15 @@ class TiposTableSeeder extends Seeder
      */
     public function run()
     {
+        // SIS\Tipo::create([
+        //     'nombre'=>'RECTOR',
+        //     'descripcion'=>'MAXIMA AUTORIDAD U.S.F.X.',
+        //     // 'estado'=>'A',
+        // ]);
         SIS\Tipo::create([
-            'nombre'=>'TIPO ELECCION',
-            'descripcion'=>'CAMBIAR EL NOMBRE Y LA DESCRIPCION',
-            'estado'=>'A',
+            'nombre'=>'VICERECTOR',
+            'descripcion'=>'SEGUNDA AUTORIDAD U.S.F.X.',
+            // 'estado'=>'A',
         ]);
     }
 }

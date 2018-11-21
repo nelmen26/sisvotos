@@ -10,6 +10,7 @@ use SIS\Candidato;
 use SIS\Tipo;
 
 use Toastr;
+use Alert;
 
 class RegistroController extends Controller
 {
@@ -60,20 +61,29 @@ class RegistroController extends Controller
 
     public function storevotos(RegistroRequest $request, Mesa $mesa)
     {
-        $candidatos = Candidato::where('tipo_id',$request->tipo_id)->where('estado','A')->orderBy('id','ASC')->get();
-		$lista = [];
-        for ($i=1; $i <= count($candidatos); $i++) { 
-            $lista = array_add($lista,$request->candidatos[$i-1],['votos'=>$request->votos[$i-1]]);
-        }
-        $mesa->candidatos()->attach($lista);
-        $candidatos = Candidato::where('estado','A')->get();
-        if($mesa->candidatos->count()==$candidatos->count())
+        if($mesa->estado == 'A')
         {
-            $mesa->estado = "D";
-            $mesa->save();
+            $candidatos = Candidato::where('tipo_id',$request->tipo_id)->where('estado','A')->orderBy('id','ASC')->get();
+            $lista = [];
+            for ($i=1; $i <= count($candidatos); $i++) { 
+                $lista = array_add($lista,$request->candidatos[$i-1],['votos'=>$request->votos[$i-1]]);
+            }
+            $mesa->candidatos()->sync($lista);
+            $candidatos = Candidato::where('estado','A')->get();
+            if($mesa->candidatos->count()==$candidatos->count())
+            {
+                $mesa->estado = "D";
+                $mesa->save();
+            }
+            Toastr::success('Registro correcto de votos','Correcto!');
+            // return redirect()->route('registros.mesas',$mesa->recinto_id);
+            return redirect()->route('registros.index');
         }
-        Toastr::success('Registro correcto de votos','Correcto!');
-        // return redirect()->route('registros.mesas',$mesa->recinto_id);
-        return redirect()->route('registros.index');
+        else{
+            Alert::error('Error, La mesa ya fue registrado')->persistent('OK');
+
+            return redirect()->route('registros.index');
+            // return back(); 
+        }
     }
 }

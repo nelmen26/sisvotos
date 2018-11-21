@@ -19,13 +19,21 @@ class UsersTableSeeder extends Seeder
         	'remember_token' => str_random(10),
         ]);
 
-        SIS\User::create([
-        	'nombre' => 'Encargado 1',
-        	'nickname' => 'encargado1',
-        	'password' => '123456',
-        	'rol' => 'encargado',
-        	'remember_token' => str_random(10),
-        ]);
+        // SIS\User::create([
+        // 	'nombre' => 'Encargado 1',
+        // 	'nickname' => 'encargado1',
+        // 	'password' => '123456',
+        // 	'rol' => 'encargado',
+        // 	'remember_token' => str_random(10),
+        // ]);
+
+        // SIS\User::create([
+        // 	'nombre' => 'Operador 1',
+        // 	'nickname' => 'operador1',
+        // 	'password' => '123456',
+        // 	'rol' => 'operador',
+        // 	'remember_token' => str_random(10),
+        // ]);
 
         //Descomentar si se desea crear usuarios por defecto para realizar pruebas (Opcional)
         // factory(SIS\Users::class,5)->create();

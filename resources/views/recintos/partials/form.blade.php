@@ -12,7 +12,7 @@
     {{ Form::text('direccion',null,['class'=> 'form-control text-uppercase', 'placeholder'=>'DIRECCION DEL RECINTO']) }}
 </div>
 
-<div class="form-group{{ $errors->has('estado') ? ' has-error' : '' }}">
+{{-- <div class="form-group{{ $errors->has('estado') ? ' has-error' : '' }}">
 	{{ Form::label('estado','Estado') }}
 	{{ Form::select('estado', ['A'=>'HABILITADO','D'=>'DESHABILITADO'],null,['class'=>'form-control', 'placeholder' => 'SELECCIONE UN ESTADO']) }}
 	@if ($errors->has('estado'))
@@ -20,7 +20,7 @@
             <strong>{{ $errors->first('estado') }}</strong>
         </span>
     @endif
-</div>
+</div> --}}
 
 <div class="form-group text-center">
 	{{ Form::submit('GUARDAR', ['class'=>'btn btn-flat btn-primary']) }}

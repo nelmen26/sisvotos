@@ -15,6 +15,10 @@
 <link rel="stylesheet" href="{{ asset('fonts/SourceSansPro/fonts.css') }}">
 <!--DataTables-->
 <link rel="stylesheet" href="{{ asset('plugins/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+
+<!-- Estilos sweetalert -->
+<link href="{{ asset('plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
+
 <!--Estilos cargados dinamicamente por otras vistas-->
 @yield('css')
 <!-- Theme style AdminLTE -->

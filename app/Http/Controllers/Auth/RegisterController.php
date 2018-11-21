@@ -68,7 +68,7 @@ class RegisterController extends Controller
             'nombre' => $data['nombre'],
             'nickname' => $data['nickname'],
             'password' => $data['password'],
-            'rol' => 'encargado',
+            'rol' => 'operador',
         ]);
     }
 }

@@ -8,6 +8,7 @@ use SIS\Http\Requests;
 use SIS\Http\Requests\TipoRequest;
 
 use SIS\Tipo;
+use SIS\Candidato;
 use Toastr;
 use Yajra\DataTables\DataTables;
 
@@ -79,6 +80,11 @@ class TipoController extends Controller
     {
         $tipo->estado = 'D';
         $tipo->save();
+        foreach($tipo->candidatos as $candidato)
+        {
+            $candidato->estado = 'D';
+            $candidato->save();
+        }
         Toastr::error('Cargo dado de baja correctamente!','Baja!');
         return back();
     }
@@ -87,6 +93,11 @@ class TipoController extends Controller
     {
         $tipo->estado = 'A';
         $tipo->save();
+        foreach($tipo->candidatos as $candidato)
+        {
+            $candidato->estado = 'A';
+            $candidato->save();
+        }
         Toastr::success('Cargo dado de alta correctamente!','Alta!');
         return back();
     }

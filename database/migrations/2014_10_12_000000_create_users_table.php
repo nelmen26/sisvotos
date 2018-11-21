@@ -18,7 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('nombre');
             $table->string('nickname')->unique();
             $table->string('password');
-            $table->enum('rol',['encargado','admin'])->default('encargado');
+            $table->enum('rol',['operador','encargado','admin'])->default('operador');
+            $table->enum('estado', ['A','D'])->default('A');
             $table->rememberToken();
             $table->timestamps();
         });

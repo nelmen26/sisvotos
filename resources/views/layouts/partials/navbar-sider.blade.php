@@ -26,6 +26,7 @@
         <i class="fa fa-check-circle"></i> <span>REGISTRO DE VOTOS</span>
       </a>
     </li>
+    @if(auth()->user()->rol == 'admin' || auth()->user()->rol == 'encargado')
     <li class="{{ active('resultados') }}">
       <a href="{{ route('resultados.index') }}">
         <i class="fa fa-pie-chart"></i> <span>RESULTADOS</span>
@@ -36,6 +37,7 @@
         <i class="fa fa-user"></i> <span>CANDIDATOS</span>
       </a>
     </li>
+    @endif
     @if(auth()->user()->rol=='admin')
     <li class="treeview {{ active('configuracion/*') }}">
       <a href="#"><i class="fa fa-cogs"></i> <span>CONFIGURACIONES</span>

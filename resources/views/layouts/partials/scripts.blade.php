@@ -15,8 +15,14 @@
 <!--Datatables-->
 <script src="{{ asset('plugins/datatables.net/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+
+<!--sweetalert-->
+
+<script src="{{ asset('plugins/sweetalert/sweetalert.min.js') }}"></script>
+
 <!-- Script personalizados-->
 <script src="{{ asset('js/script.js') }}"></script>
 
 <!-- Scripts agregados dinamicamente por las vistas-->
 @yield('scripts')
+@include('sweet::alert')
